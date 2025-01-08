@@ -26,4 +26,13 @@
     #       que vuelve al principio cuando llega al final).
  
     echo $a % $b;
+
+    # incrementos
+    ++$a;#incrementa en 1 y devuelve a
+    $a++;#devuelve a y luego lo incrementa en 1
+    #decrementos
+    --$a;#decrementa en 1 y devuelve a
+    $a--;#devuelve a y luego lo decrementa en 1
+
+    
 ?>
