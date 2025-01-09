@@ -1,0 +1,15 @@
+.Contenedor{
+    text-align: center
+}
+
+.izquierda{
+    float: left
+}
+
+.derecha{
+    float: right
+}
+
+.centro{
+    display: inline-block
+}
