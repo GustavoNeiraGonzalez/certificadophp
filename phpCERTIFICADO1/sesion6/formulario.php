@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="estilo.css" rel="stylesheet" type="text/css" media="screen" />
   
@@ -10,15 +10,13 @@
 <body>
 <div class="contenedor">
             <div class="login">
-                <?php
-                error_reporting(E_ALL  ^  E_NOTICE  ^  E_WARNING); 
-                if ($_GET["error"]=="si") { 
-                    echo "<span style='color:#800000
-                    
-                    ; font
-                    -size:2em;'>VERIFICA LOS DATOS INGRESADOS</span>";
-                    }
-                ?>                                                
+            <?php
+               error_reporting(E_ALL  ^  E_NOTICE  ^  E_WARNING); 
+               if ($_GET["error"]=="si") { 
+                echo "<span style='color:#800000; font
+                -size:2em;'>VERIFICA LOS DATOS INGRESADOS</span>";
+            }
+            ?>                                        
                 <h2>Login </br></h2>             
                 <form name="login" method="post" action="validar.php" enctype="application/x-www-form-urlencoded">
                     <div class="izquierda">
@@ -43,22 +41,25 @@
             </div>
 
             <div class="formulario">
-                <form ="registro" method="post" action="registro.php">
+                <form ="registro" method="post" action="registro.php" ><!--BATALLE BUSCANDO EL ERROR
+                    PERO AQUI HABIA UN FORM QUE CERRABA EL FORMULARIO POR ESO NO FUNCIONABA EL FORMULARIO
+                </form>> -->
                     <div class="campo">
                         <label for="rut">RUT:</label>
                         <input type="text" name="rut" required/>
                     </div>
-
+                 
                     <div class="campo">
                         <div class="en-linea izquierdo">
                             <label for="nombre">Nombre:</label>
                             <input type="text" name="nombre" required/>
                         </div>
 
-                    <div class="en-linea">
+
+                    <div class="en-linea ">
                         <label for="apellido">Apellido:</label>
                         <input type="text" name="apellido" required/>
-                        </div>
+                        </div>                        
                     </div>
 
                     <div class="campo">
@@ -81,10 +82,21 @@
                     <div class="botones">
                         <input type="submit" name="boton-enviar" value="Registrarse"/>
                         <p class="mensaje" name="mensaje"></p>
+                                                
+                        <?php
+                        
+                        if ($_GET["error"]=="si") {
+                        echo "<p class='mensaje'>Las contraseñas no coinciden</p>";
+
+                         }else if ($_GET['valida']=="si") {
+
+                         echo "<p class='mensaje'>Usuario creado exitosamente</p>";
+                        }
+                         ?>                        
                     </div>
                 </form>
             </div>
-
         </div>
 </body>
 </html>
+
