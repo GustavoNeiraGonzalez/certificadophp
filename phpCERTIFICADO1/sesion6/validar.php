@@ -2,7 +2,7 @@
     include('conexion.php');
 
     $usuario = $_POST['usuario'];
-    $pass = $_POST['pass'];
+    $pass = $_POST['pass']; #hay un error al logear que solucionar
 
         $query = $conn->prepare("SELECT contraseña FROM registros WHERE rut = :usuario");
         $query->bindParam(":usuario", $usuario);
