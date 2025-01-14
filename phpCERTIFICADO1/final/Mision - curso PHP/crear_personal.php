@@ -48,9 +48,9 @@ include ('sesion.php');
                             <input type="text" name="nombre" required/>
                         </div>
 
-                        <div class="en-linea">
-                            <label for="apellido">Apellido:</label>
-                            <input type="text" name="apellido" required/>
+                    <div class="en-linea">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" name="apellido" required/>
                         </div>
                     </div>
 
