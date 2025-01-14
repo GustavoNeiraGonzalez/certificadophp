@@ -1,5 +1,6 @@
 <?php
 include ('sesion.php');
+#este es el formulario para crear usuario
 ?>
 
 <!DOCTYPE html>
