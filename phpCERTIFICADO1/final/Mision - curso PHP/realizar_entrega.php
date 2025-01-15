@@ -1,5 +1,6 @@
 <?php
 include ('sesion.php');
+
 ?>
 
 
@@ -15,6 +16,9 @@ include ('sesion.php');
 
     <body>
         <div class="contenedor">
+            <?php
+                error_reporting(E_ALL  ^  E_NOTICE  ^  E_WARNING);
+            ?>
             <div class= "encabezado">
                 <div class="izq">
                     <p>Bienvenido/a:<br></p>
@@ -86,7 +90,19 @@ include ('sesion.php');
                 </div>
                 
                 <div class="botones">
-                    <input name='agregar' type="submit" value="agregar">
+                    <input name='agregar' type="submit" value="agregar"/>
+                    <?php
+                        if ($_GET["error"]=="si") { 
+                            echo "<p class='mensaje'> Error inesperado</p>";
+                            
+                        }else if ($_GET['valida'] == "si") {
+
+                            echo "<p class='mensaje'> Entrega realizada con exito</p>";
+                        }else if ($_GET['error'] == "codigoProducto") { #manejo de error: codigo de producto
+
+                            echo "<p class='mensaje'> ERROR, codigo de producto no valido</p>";
+                        }
+                    ?>
                 </div>
                 
             </form>
@@ -99,10 +115,47 @@ include ('sesion.php');
                  Descontar la cantidad ingresada al stock existente del producto a retirar.
                  Insertar los datos ingresados en la tabla "entregas" de la base de datos. 
                  Redirigir a esta misma página para visualizar la actualización del stock.-->    
-
+                    
             <?php 
-                
-                
+                #ESTA COMENTADO POR QUE EL CODIGO FUNCIONANDO EN EL PROGRAMA LO HICE DENTRO DE 
+                #registroEntrega.php
+                /*if (isset($_POST['agregar'])) {
+                    echo "<pre>";
+                    print_r($_POST);
+                    echo "</pre>";  
+                    try{
+                        $rut= $_POST['rut'];
+                        $codigo= $_POST['codigo'];
+                        $cantidad= $_POST['cantidad'];
+                        $fecha= $_POST['fecha'];
+
+                        #---actualizar (update) tabla productos y restar la cantidad quitada --
+                        $sql = "UPDATE PRODUCTOS SET stock = stock-'$cantidad'
+                                WHERE cod_producto='$codigo'";
+                        $query = $conn->prepare($sql); // $query ahora es una instancia de PDOStatement
+
+                        $query->execute(); // Aquí solo necesitas ejecutar la declaración
+
+                        #---crear (insert) los datos de entrega ---
+                        $sql2 = "INSERT  INTO ENTREGAS (rut,cod_producto,cantidad,fecha_entrega) 
+                                VALUES('$rut','$codigo','$cantidad','$fecha')";
+                                $query2= $conn -> prepare($sql2);    
+                                $query2 ->execute() ;
+
+
+                        header("Location:realizar_entrega.php?valida=si");
+
+                    } catch (PDOException $e) {
+                    
+                        // Para otros errores, muestra el mensaje general
+                        echo "Error inesperado: " . $e->getMessage();
+                    
+                    }
+                }else{
+                    header("Location:realizar_entrega.php?error=si");
+                }
+                */
+              
 
              ?>
                 

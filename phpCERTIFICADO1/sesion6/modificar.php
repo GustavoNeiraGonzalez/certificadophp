@@ -98,7 +98,7 @@ include('sesion.php');#ESTA LINEA PARA VERIFICAR QUE LA SESION HA SIDO CREADA AN
                     $email= $_POST['email'];
                     $sql= "UPDATE REGISTROS SET rut= '$rut', nombre= '$nombre', apellido= '$apellido', email= '$email' 
                     WHERE rut= '$seleccionar'";
-                    $query= $conn->prepare($sql);
+                    $query= $conn->prepare(query: $sql);
                     $query->execute();
 
                     header ("Location:modificar.php");

@@ -36,7 +36,7 @@ include ('sesion.php');
 				$consulta="SELECT * FROM ENTREGAS";
 				$query = $conn -> prepare($consulta) ;
 				$query->execute();
-				$result =  $query -> fetch(PDO:: FETCH_ASSOC);
+				$results =  $query -> fetchAll(PDO:: FETCH_ASSOC);
 		
 				echo "<table  width='80%' align='center'><tr>";	         	  
 				echo "<th width='20%'>RUT</th>";
