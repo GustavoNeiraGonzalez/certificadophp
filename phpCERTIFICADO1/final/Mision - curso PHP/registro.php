@@ -3,10 +3,15 @@
   Validar que el rut ingresado no se encuantre en la base de datos.
   Si ya existe un registro vinc ulado al rut ingresado:
 	 Redirigir a crear_personal y entregar mensaje.
+     --HECHO--
   Si no existe:
 	 Insertar datos en tabla correspondiente.
 	 Redirigir a crear_personal y mostrar mensaje.
-Si las contraseñas no existen redirigir a crear_personal y mostrar mensaje. --> 	
+    --HECHO--
+Si las contraseñas no existen redirigir a crear_personal y mostrar mensaje. 
+    --HECHO -- 
+--> 	
+
 <?php
 include ('conexion.php');
 if ($_POST['contrasena1'] == $_POST['contrasena2']) { 
@@ -27,6 +32,7 @@ if ($_POST['contrasena1'] == $_POST['contrasena2']) {
     } catch (PDOException $e) {
         // aqui se comprueba con el codigo 23000 si el rut ya esta en el sistema
         if ($e->getCode() == 23000) {
+            header("Location:crear_personal.php?error=rut");
             echo "Error: El RUT $rut ya existe en el sistema.";
         } else {
             // Para otros errores, muestra el mensaje general

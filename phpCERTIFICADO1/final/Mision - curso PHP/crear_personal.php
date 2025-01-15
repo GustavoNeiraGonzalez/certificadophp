@@ -83,6 +83,8 @@ include ('sesion.php');
                             if ($_GET["error"]=="si") { 
                                 echo "<p class='mensaje'> Las contraseñas no coinciden</p>";
                     
+                            }else if($_GET["error"]=="rut"){
+                                echo "<p class='mensaje'> Error: rut ingresado no es valido ya se utiliza en un usuario </p>";
                             }else if ($_GET['valida'] == "si") {
 
 
