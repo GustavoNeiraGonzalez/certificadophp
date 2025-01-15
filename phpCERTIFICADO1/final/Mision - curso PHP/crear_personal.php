@@ -83,15 +83,13 @@ include ('sesion.php');
                             if ($_GET["error"]=="si") { 
                                 echo "<p class='mensaje'> Las contraseñas no coinciden</p>";
                     
-                            }else if($_GET["error"]=="rut"){
-                                echo "<p class='mensaje'> Error: rut ingresado no es valido ya se utiliza en un usuario </p>";
                             }else if ($_GET['valida'] == "si") {
 
 
                              echo "<p class='mensaje'> Usuario creado correctamente</p>";
-                                    }else if ($_GET["mensaje"]=="si") {
-                                         echo "<p class='mensaje'> Ya existe un registro asociado al rut ingresado</p>";
-                                    }
+                            }else if ($_GET["error"]=="rut") {
+                                    echo "<p class='mensaje'> Ya existe un registro asociado al rut ingresado</p>";
+                            }
                         ?>
 
                             

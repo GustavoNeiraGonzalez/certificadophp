@@ -63,30 +63,30 @@ include ('sesion.php');
                  echo "</table></br>";
             ?>
 
-            <form action="" method="post" align='center'>
+            <form ="registro" align='center' method="post" action="registroEntrega.php" enctype="application/x-www-form-urlencoded">
 
                 <div class="campo">
                     <label name="rut">Rut personal que retira:</label>
-                    <input name='rut' type="text">
+                    <input name='rut' type="text" required/>
                 </div>
 
                 <div class="campo">
                     <label name="cod">Código del producto:</label>
-                    <input name='codigo' type="text">
+                    <input name='codigo' type="text" required/>
                 </div>
 
                 <div class="campo">
                     <label name="cantd">Cantidad:</label>
-                    <input name='cantidad' type="text">
+                    <input name='cantidad' type="text" required/>
                 </div>
 
                 <div class="campo">
                     <label name="cantd">Fecha entrega:</label>
-                    <input name='fecha' type="date">
+                    <input name='fecha' type="date" required/>
                 </div>
                 
                 <div class="botones">
-                    <input name='agregar' type="submit" value="Agregar">
+                    <input name='agregar' type="submit" value="agregar">
                 </div>
                 
             </form>
@@ -103,14 +103,7 @@ include ('sesion.php');
             <?php 
                 
                 
-                if (isset($_POST['agregar'])) {
-                
 
-
-
-
-
-                }
              ?>
                 
         </div>
